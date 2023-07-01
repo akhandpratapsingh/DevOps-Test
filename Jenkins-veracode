@@ -32,7 +32,7 @@ pipeline {
 				 // sonarSummaries()
 				    snDevOpsChange()
 				    //snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'VeraDemo10','buildVersion': '21 Mar 2023 Static','securityToolId' : '731eaf2487abad1028f00e94dabb3591'}"
-				echo "hi"
+				echo "hello"
 				 
 				 
 				
