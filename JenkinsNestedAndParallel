@@ -50,7 +50,7 @@ pipeline {
 							post {
 								success {
 									echo 'Test1-success'
-									junit "**/target/surefire-reports/*.xml"
+									//junit "**/target/surefire-reports/*.xml"
 								}
 							}
 						}
@@ -58,7 +58,7 @@ pipeline {
 							steps {
 								echo 'CR1'
 								sleep 10
-								
+								snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : 'e3523e8687bb21106b8f8739dabb3566'}" //'securityToolId' : '05bf3d33c32f2110cd4cf92f0501311b'}"
 								snDevOpsChange(changeRequestDetails: """
 								  {
 								    "setCloseCode": false,
