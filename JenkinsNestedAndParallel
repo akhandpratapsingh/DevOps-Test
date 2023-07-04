@@ -27,8 +27,9 @@ pipeline {
 						sleep 20
 					        snDevOpsChange()
 					       }
-					        //sonarSummaries()
-					      snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : '98c65d8d83b7e510524b9b50ceaad3e1'}" //'securityToolId' : '05bf3d33c32f2110cd4cf92f0501311b'}"
+					    }		
+					    //sonarSummaries()
+					   snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode','applicationName': 'PetStoreAPI-Github', 'securityToolId' : '98c65d8d83b7e510524b9b50ceaad3e1'}" //'securityToolId' : '05bf3d33c32f2110cd4cf92f0501311b'}"
 					}
 				} // end of build 1.1
 			} // end of stages
