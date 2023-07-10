@@ -59,7 +59,7 @@ pipeline {
 								echo 'CR1'
 								sleep 10
 								snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Veracode","applicationName": "PetStoreAPI-Github", "securityToolId" : "9f997a1e47732910ce9171dc416d43d8"}'
-								snDevOpsChange(changeRequestDetails: """
+								/*snDevOpsChange(changeRequestDetails: """
 								  {
 								    "setCloseCode": false,
 								         "attributes": {
@@ -73,7 +73,7 @@ pipeline {
 								            "start_date": "2022-01-05 11:59:59",
 								            "end_date": "2022-01-08 11:59:59"
 								      }
-								}""")
+								}""")*/
 							}
 						}
 
