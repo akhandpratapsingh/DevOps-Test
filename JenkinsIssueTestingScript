@@ -19,11 +19,11 @@ pipeline {
 
         stage('Artifact') {
             steps {
-		sleep 5
+		//sleep 5
                 echo 'nested_inside_parallel'
                 sh 'mvn test -Dpublish'
                 junit "**/target/surefire-reports/*.xml"
-                sleep 15
+                //sleep 15
             }
             post {
                 success {
