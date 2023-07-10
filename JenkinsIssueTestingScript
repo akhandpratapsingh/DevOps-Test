@@ -1,6 +1,13 @@
 
 pipeline {
     agent any
+	tools {
+		maven 'Maven'
+	}
+	environment {
+		SCANNER_HOME = tool 'sonarScanner'
+	}
+
 
     stages {
         stage('Artifact') {
