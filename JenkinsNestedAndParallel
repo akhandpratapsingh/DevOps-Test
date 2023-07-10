@@ -20,11 +20,11 @@ pipeline {
 					steps {
 						echo "build 1.1 executed"
 						sh 'mvn clean'
-						sleep 10
-						//snDevOpsArtifact(artifactsPayload: """{"artifacts": [{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}","semanticVersion": "1.${env.BUILD_NUMBER}.0","repositoryName": "${repoName}"}],"branchName":"main"}""")
+						sleep 5
+						snDevOpsArtifact(artifactsPayload: """{"artifacts": [{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}","semanticVersion": "1.${env.BUILD_NUMBER}.0","repositoryName": "${repoName}"}],"branchName":"main"}""")
 				          sleep 5
-					  	//snDevOpsPackage(name: "${packageName}-${env.BUILD_NUMBER}", artifactsPayload: """{"artifacts":[{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}", "repositoryName": "${repoName}"}], "branchName":"main"}""")
-						sleep 20
+					  	snDevOpsPackage(name: "${packageName}-${env.BUILD_NUMBER}", artifactsPayload: """{"artifacts":[{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}", "repositoryName": "${repoName}"}], "branchName":"main"}""")
+						sleep 5
 						//snDevOpsChange()
 				                snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Veracode","applicationName": "PetStoreAPI-Github"}'
 						//sonarSummaries()
@@ -40,10 +40,9 @@ pipeline {
 					stages {
 						stage("nested_inside_parallel") {
 							steps {
-							       // sleep 30
+							       	sleep 10
 								echo 'nested_inside_parallel'
-								 sh 'mvn test -Dpublish'
-								 //sh 'mvn test -Dpublish'
+								sh 'mvn test -Dpublish'
 								sleep 5
 								junit "**/target/surefire-reports/*.xml"
 								sleep 15
@@ -59,7 +58,7 @@ pipeline {
 							steps {
 								echo 'CR1'
 								sleep 10 
-								//snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Veracode","applicationName": "PetStoreAPI-Github", "securityToolId" : "9f997a1e47732910ce9171dc416d43d8"}'
+								snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Veracode","applicationName": "PetStoreAPI-Github"}'
 								/*snDevOpsChange(changeRequestDetails: """
 								  {
 								    "setCloseCode": false,
@@ -84,12 +83,12 @@ pipeline {
 					stages {
 						stage("nested_inside_parallel2") {
 							steps {
-								//sleep 20
-								//sh 'mvn test -Dpublish'
+								sleep 5
+								sh 'mvn test -Dpublish'
 								echo 'Test2 in progress'
 								sleep 5
-								//junit "**/target/surefire-reports/*.xml"
-								sleep 15
+								junit "**/target/surefire-reports/*.xml"
+								sleep 10
 								//snDevOpsChange()
 								//sonarSummaries()
 							}
