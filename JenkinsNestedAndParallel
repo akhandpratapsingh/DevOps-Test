@@ -44,7 +44,7 @@ pipeline {
 								 sh 'mvn test -Dpublish'
 								 sh 'mvn test -Dpublish'
 								sleep 5
-								//junit "**/target/surefire-reports/*.xml"
+								junit "**/target/surefire-reports/*.xml"
 								sleep 15
 							}
 							post {
@@ -89,13 +89,13 @@ pipeline {
 								sleep 5
 								junit "**/target/surefire-reports/*.xml"
 								sleep 15
-								//snDevOpsChange()
+								snDevOpsChange()
 								//sonarSummaries()
 							}
 							post {
 								success {
 									echo 'Test2-success'
-									//junit "**/target/surefire-reports/*.xml"
+									junit "**/target/surefire-reports/*.xml"
 								}
 							}
 						}
@@ -103,7 +103,7 @@ pipeline {
 							steps {
 								echo 'CR2'
 								sleep 10
-								//snDevOpsChange()
+								snDevOpsChange()
 							}
 						}
 					} //end of stages			 
