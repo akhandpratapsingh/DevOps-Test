@@ -25,7 +25,7 @@ pipeline {
 				          sleep 5
 					  	snDevOpsPackage(name: "${packageName}-${env.BUILD_NUMBER}", artifactsPayload: """{"artifacts":[{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}", "repositoryName": "${repoName}"}], "branchName":"main"}""")
 						sleep 20
-						snDevOpsChange()
+						//snDevOpsChange()
 				                snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Veracode","applicationName": "PetStoreAPI-Github", "securityToolId" : "9f997a1e47732910ce9171dc416d43d8"}'
 						//sonarSummaries()
 					}
@@ -60,7 +60,7 @@ pipeline {
 								sleep 10
 								snDevOpsArtifact(artifactsPayload: """{"artifacts": [{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}","semanticVersion": "1.${env.BUILD_NUMBER}.0","repositoryName": "${repoName}"}],"branchName":"main"}""")
 								//snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Veracode","applicationName": "PetStoreAPI-Github", "securityToolId" : "9f997a1e47732910ce9171dc416d43d8"}'
-								snDevOpsChange(changeRequestDetails: """
+								/*snDevOpsChange(changeRequestDetails: """
 								  {
 								    "setCloseCode": false,
 								         "attributes": {
@@ -74,7 +74,7 @@ pipeline {
 								            "start_date": "2022-01-05 11:59:59",
 								            "end_date": "2022-01-08 11:59:59"
 								      }
-								}""")
+								}""")*/
 							}
 						}
 
@@ -90,7 +90,7 @@ pipeline {
 								sleep 5
 								junit "**/target/surefire-reports/*.xml"
 								sleep 15
-								snDevOpsChange()
+								//snDevOpsChange()
 								//sonarSummaries()
 							}
 							post {
@@ -104,7 +104,7 @@ pipeline {
 							steps {
 								echo 'CR2'
 								sleep 10
-								snDevOpsChange()
+								//snDevOpsChange()
 							}
 						}
 					} //end of stages			 
