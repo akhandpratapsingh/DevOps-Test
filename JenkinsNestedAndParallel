@@ -26,7 +26,7 @@ pipeline {
 					  	snDevOpsPackage(name: "${packageName}-${env.BUILD_NUMBER}", artifactsPayload: """{"artifacts":[{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}", "repositoryName": "${repoName}"}], "branchName":"main"}""")
 						sleep 5
 						//snDevOpsChange()
-				                snDevOpsSecurityResult securityResultAttributes: '{"scanner":"Veracode", "applicationName": "PetStoreAPI-Github", "buildVersion": }'
+				                snDevOpsSecurityResult securityResultAttributes: '{"scanner":"Veracode", "applicationName": "PetStoreAPI-Github", "buildVersion":"" }'
 						//sonarSummaries()
 					}
 				} // end of build 1.1
@@ -58,7 +58,7 @@ pipeline {
 							steps {
 								echo 'CR1'
 								sleep 10 
-								snDevOpsSecurityResult securityResultAttributes: '{"scanner":"Veracode", "applicationName": "VeraDemo10", "buildVersion": }'
+								snDevOpsSecurityResult securityResultAttributes: '{"scanner":"Veracode", "applicationName": "VeraDemo10", "buildVersion":"" }'
 								/*snDevOpsChange(changeRequestDetails: """
 								  {
 								    "setCloseCode": false,
