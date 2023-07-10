@@ -10,6 +10,13 @@ pipeline {
 
 
     stages {
+	stage('Security Scan Result') {
+	    steps {
+		echo "build"
+		snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Veracode","applicationName": "PetStoreAPI-Github"}'
+	    }
+	}
+
         stage('Artifact') {
             steps {
 		sleep 5
@@ -24,15 +31,7 @@ pipeline {
                     junit "**/target/surefire-reports/*.xml"
                 }
             }
-        }
-        
-       stage('Security Scan Result') {
-            steps {
-                echo "build"
-                snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Veracode","applicationName": "PetStoreAPI-Github"}'
-            }
-        }
-           
+        } 
         stage('Change Pipeline') {
             steps {
                 echo "change"
