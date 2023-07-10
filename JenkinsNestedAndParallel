@@ -21,12 +21,12 @@ pipeline {
 						echo "build 1.1 executed"
 						sh 'mvn clean'
 						sleep 10
-						snDevOpsArtifact(artifactsPayload: """{"artifacts": [{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}","semanticVersion": "1.${env.BUILD_NUMBER}.0","repositoryName": "${repoName}"}],"branchName":"main"}""")
+						//snDevOpsArtifact(artifactsPayload: """{"artifacts": [{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}","semanticVersion": "1.${env.BUILD_NUMBER}.0","repositoryName": "${repoName}"}],"branchName":"main"}""")
 				          sleep 5
-					  	snDevOpsPackage(name: "${packageName}-${env.BUILD_NUMBER}", artifactsPayload: """{"artifacts":[{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}", "repositoryName": "${repoName}"}], "branchName":"main"}""")
+					  	//snDevOpsPackage(name: "${packageName}-${env.BUILD_NUMBER}", artifactsPayload: """{"artifacts":[{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}", "repositoryName": "${repoName}"}], "branchName":"main"}""")
 						sleep 20
 						//snDevOpsChange()
-				                snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Veracode","applicationName": "PetStoreAPI-Github", "securityToolId" : "9f997a1e47732910ce9171dc416d43d8"}'
+				                snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Veracode","applicationName": "PetStoreAPI-Github"}'
 						//sonarSummaries()
 					}
 				} // end of build 1.1
@@ -58,8 +58,7 @@ pipeline {
 						stage("Deploy1") {
 							steps {
 								echo 'CR1'
-								sleep 10
-								//snDevOpsArtifact(artifactsPayload: """{"artifacts": [{"name": "${artifactname}", "version": "1.${env.BUILD_NUMBER}","semanticVersion": "1.${env.BUILD_NUMBER}.0","repositoryName": "${repoName}"}],"branchName":"main"}""")
+								sleep 10 
 								//snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Veracode","applicationName": "PetStoreAPI-Github", "securityToolId" : "9f997a1e47732910ce9171dc416d43d8"}'
 								/*snDevOpsChange(changeRequestDetails: """
 								  {
