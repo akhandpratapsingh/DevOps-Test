@@ -3,16 +3,16 @@ name: Get Security Summary Results
 on: workflow_dispatch
 
 jobs:
-  build:
+  # build:
     # Running your workflow when a pull request merges
     # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#running-your-workflow-when-a-pull-request-merges-1
     #if: github.event.pull_request.merged == true
-    name: Build
-    runs-on: ubuntu-latest
-    steps:           
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+    # name: Build
+    # runs-on: ubuntu-latest
+    # steps:           
+    #   - uses: actions/checkout@v2
+    #     with:
+    #       fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
   # This workflow contains a job to build and submit pipeline scan, you will need to customize the build process accordingly and make sure the artifact you build is used as the file input to the pipeline scan file parameter
 #   scan:
@@ -48,7 +48,7 @@ jobs:
 #           java-version: 8
 #           distribution: 'temurin'
 #       - run: java -jar pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --fail_on_severity="Very High, High" --file target/DevOps-Test-1.39.0-SNAPSHOT.jar
-        continue-on-error: true
+        # continue-on-error: true
         
 #       - name: Convert pipeline scan output to SARIF format
 #         id: convert
