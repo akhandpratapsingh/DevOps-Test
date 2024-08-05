@@ -7,7 +7,7 @@ pipeline {
                 echo 'Hello World'
                 // Add shell script to create a file and write to it
                 script {
-                    sh 'echo "Hello World" > hello.txt'
+                    sh 'echo "Hi Testing was successful" > success.txt'
                 }
                 // Archive the file
                 archiveArtifacts artifacts: 'hello.txt'
