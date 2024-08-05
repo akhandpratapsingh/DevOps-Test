@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+                // Add shell script to create a file and write to it
+                script {
+                    sh 'echo "Hello World" > hello.txt'
+                }
+                // Archive the file
+                archiveArtifacts artifacts: 'hello.txt'
+            }
+        }
+    }
+}
