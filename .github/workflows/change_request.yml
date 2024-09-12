@@ -33,6 +33,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:     
+      - name: Set up VERSION environment variable
+        run: echo "VERSION=${{ secrets.VERSION }}" >> $GITHUB_ENV
+
       - name: ServiceNow Change Approval
         uses: ServiceNow/servicenow-devops-change@${{ env.VERSION }}
         with:
