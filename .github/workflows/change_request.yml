@@ -35,7 +35,7 @@ jobs:
     steps:     
 
       - name: ServiceNow Change Approval
-        uses: ServiceNow/servicenow-devops-change@$vars.VERSION
+        uses: ServiceNow/servicenow-devops-change@2.0.0
         with:
           #devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
           #devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
