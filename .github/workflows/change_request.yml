@@ -46,7 +46,7 @@ jobs:
                 # ServiceNow Instance URL
                 instance-url: ${{ secrets.SN_INSTANCE_URL }}
                 # Orchestration Tool Id
-                tool-id: '8022926fff20121054b7fbb5fc4fd9f0'
+                tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
                 # Display Name of the Job
                 job-name: 'Integration Tests'
                 # Github Context
