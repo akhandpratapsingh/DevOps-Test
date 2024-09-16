@@ -38,9 +38,11 @@ jobs:
             uses: ServiceNow/servicenow-devops-register-artifact@main
             with:
                 # Devops Integration User Name
-                devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
+                # devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
                 # Devops Integration User Password
-                devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
+                # devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
+                # Devops Integration Token
+                devops-integration-token: ${{ secrets.SN_DEVOPS_INTEGRATION_TOKEN }}
                 # ServiceNow Instance URL
                 instance-url: ${{ secrets.SN_INSTANCE_URL }}
                 # Orchestration Tool Id
