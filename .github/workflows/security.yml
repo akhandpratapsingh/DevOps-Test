@@ -90,7 +90,7 @@ jobs:
 #           security-result-attributes: '{ "scanner": "Veracode", "applicationName": "10kflaws-72", "securityToolId": "05bf3d33c32f2110cd4cf92f0501311b" }'
           
       -  name: ServiceNow Change Approval
-         uses: ServiceNow/servicenow-devops-change@${{ secrets.VERSION }}
+         uses: ServiceNow/servicenow-devops-change@main
          id: create
          with:
           devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
