@@ -248,11 +248,12 @@ jobs:
   change:
     name: Change Request
     # if: always()
-    needs: build
+    needs: build   
     runs-on: ubuntu-latest
     steps:     
       - name: ServiceNow DevOps Change Attributes
         uses: ServiceNow/servicenow-devops-change@v5.1.0
+        id: create_change
         with:
           # devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
           # devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
@@ -268,7 +269,7 @@ jobs:
           # deployment-gate: '{"environment":"prod","jobName":"Deploy"}'
           #chg_model":"007c4001c343101035ae3f52c1d3aeb2"
       - name: Output of Change Creation
-        run: echo "change-request-number = ${{ steps.create.outputs.change-request-number }} and change-request-sys-id = ${{ steps.create.outputs.change-request-sys-id }} " >> $GITHUB_OUTPUT
+        run: echo "change-request-number = ${{ steps.create_change.outputs.change-request-number }} and change-request-sys-id = ${{ steps.create_change.outputs.change-request-sys-id }} " >> $GITHUB_OUTPUT
         
   deploy:
     name: 'Deploy'
