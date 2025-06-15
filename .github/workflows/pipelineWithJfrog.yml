@@ -31,7 +31,7 @@ jobs:
    # This command adds a new server configuration to the JFrog CLI   
    - run: |
        export SERVER_ID="venkata7"
-       jf c add $SERVER_ID --url="https://trialrr40c3.jfrog.io/" --access-token="cmVmdGtuOjAxOjE3ODEyNjE2Mjg6UDliT1BwbDJpaDdlWHB5NHZZYmFtcjBaeXoy" --interactive=false
+       jf c add $SERVER_ID --url="https://trialrr40c3.jfrog.io/" --access-token=${{ secrets.JFROG_ACCESS_TOKEN }} --interactive=false
 
   # Upload the JFrog Artifact, in the below we are upload README.md artifact.
    - name: Run JFrog CLI Ping
