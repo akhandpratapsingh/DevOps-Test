@@ -3,7 +3,7 @@
 
 name: Composite Child Pipeline
 
-on: workflow_dispatch
+on: workflow_call
   # push: 
   #   branches: [ "main" ]   
   # pull_request: 
