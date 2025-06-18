@@ -9,7 +9,7 @@ on: workflow_dispatch
   # pull_request: 
   #   branches: [ "main" ]
   #   types: [opened, synchronize, reopened]
-run-name: Child Build #${{ github.run_number }} on ${{ github.ref_name }} by ${{ github.actor }}
+run-name: "Child Build #${{ github.run_number }} on ${{ github.ref_name }} by ${{ github.actor }}"
 
 # on:
 #   schedule:
