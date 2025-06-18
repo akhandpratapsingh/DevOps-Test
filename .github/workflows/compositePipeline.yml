@@ -75,7 +75,7 @@ jobs:
   Composite:
     name: 'Composite'
     needs: Build
-    uses: .github/workflows/CompositeChild.yml@main
+    uses: akhandpratapsingh/DevOps-Test/.github/workflows/CompositeChild.yml@main
     # needs: jFrog
 
 
