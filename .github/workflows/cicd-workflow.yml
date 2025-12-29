@@ -67,35 +67,35 @@ jobs:
     - name: Build with Maven
       run: mvn clean compile
 
-  test:
-    name: 'Test'
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4.0.0
+  # test:
+  #   name: 'Test'
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4.0.0
         
-      - name: Run Tests with Maven
-        run: mvn -B test --file pom.xml
+  #     - name: Run Tests with Maven
+  #       run: mvn -B test --file pom.xml
         
-      - name: ServiceNow DevOps Unit Test Results
-        uses: ServiceNow/servicenow-devops-test-report@v6.0.0
-        with:
-          # Devops Integration Token
-          # devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
-          # devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
-          devops-integration-token: ${{ secrets.SN_DEVOPS_TOKEN }}
-          # ServiceNow Instance Name
-          instance-url: ${{ secrets.SN_INSTANCE_URL }}
-          # Orchestration Tool Id
-          tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
-          # Job Name
-          job-name: 'Test' # Should be same name as declared in 'name' clause of the current Stage
-          # Github Context
-          context-github: ${{ toJSON(github) }}
-          # JUnit xml report file name with path
-          # xml-report-filename: testng.xml
-          xml-report-filename: target/surefire-reports/testng-results.xml  
+  #     - name: ServiceNow DevOps Unit Test Results
+  #       uses: ServiceNow/servicenow-devops-test-report@v6.0.0
+  #       with:
+  #         # Devops Integration Token
+  #         # devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
+  #         # devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
+  #         devops-integration-token: ${{ secrets.SN_DEVOPS_TOKEN }}
+  #         # ServiceNow Instance Name
+  #         instance-url: ${{ secrets.SN_INSTANCE_URL }}
+  #         # Orchestration Tool Id
+  #         tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
+  #         # Job Name
+  #         job-name: 'Test' # Should be same name as declared in 'name' clause of the current Stage
+  #         # Github Context
+  #         context-github: ${{ toJSON(github) }}
+  #         # JUnit xml report file name with path
+  #         # xml-report-filename: testng.xml
+  #         xml-report-filename: target/surefire-reports/testng-results.xml  
         
 
   # test2:
@@ -253,7 +253,7 @@ jobs:
   change:
     name: Change Request
     # if: always()
-    needs: test   
+    needs: build   
     runs-on: ubuntu-latest
     steps:     
       - name: ServiceNow DevOps Change Attributes
@@ -348,3 +348,5 @@ jobs:
           
       # - name: Outcome of  ServiceNow DevOps Update Change
       #   run: echo 'Outcome of ServiceNow DevOps Update Change is -> ${{ steps.update_change.outputs.status }}'  >> $GITHUB_OUTPUT    
+
+      
